@@ -1,0 +1,57 @@
+#home {
+ background: #ffc107;
+ color: white;
+}
+
+.caixa {
+    padding: 60px 0;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.table-container {
+    margin-top: 20px;
+}
+
+.benefit-img {
+    max-width: 100%;
+    height: auto;
+  }
+  .benefits-section {
+    margin-top: 40px;
+  }
+
+  .resource-img {
+    height: 150px;
+    object-fit: contain; /* Ajusta a imagem dentro do contêiner sem distorção */
+  }
+  .resource-item {
+    margin-top: 30px; 
+  }
+  
+  .resource-title {
+    font-size: 1.5rem;
+    margin-top: 15px;
+  }
+  .resource-description {
+    font-size: 1rem;
+    color: #555;
+  }  
+
+  .benefits-section {
+    margin-top: 30px; /* Margem superior para o título */
+  }
+  
+  .benefit-img {
+    width: 100%; /* Garante que a imagem ocupe a largura total do contêiner */
+    height: auto; /* Mantém a proporção da imagem */
+    max-height: 300px; /* Altura máxima para manter as imagens uniformes */
+    object-fit: contain; /* Ajusta a imagem dentro do contêiner sem distorção */
+  }
+
+  .benefits-section h1 {
+    margin-bottom: 30px; /* Espaçamento entre o título e o conteúdo */
+  }
+  
+footer p a {
+    margin: 5px 15px;
+}
