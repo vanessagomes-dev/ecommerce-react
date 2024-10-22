@@ -6,15 +6,13 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 
 // Conexão com o MongoDB
-mongoose.connect(process.env.MONGO_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-})
-  .then(() => console.log('MongoDB Atlas conectado!'))
-  .catch((err) => console.error('Erro ao conectar no MongoDB', err));
+mongoose.connect(process.env.MONGO_URI)
+
+.then(() => console.log('MongoDB Atlas conectado!'))
+.catch((err) => console.error('Erro ao conectar no MongoDB', err));
 
 app.use(express.json());
 
