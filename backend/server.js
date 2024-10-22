@@ -2,18 +2,25 @@ const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 
-dotenv.config();  // Carregar variáveis de ambiente do arquivo .env
+// Carregar variáveis de ambiente do arquivo .env
+dotenv.config();
+
 const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Conexão com o MongoDB
-mongoose.connect(process.env.MONGO_URI)
-  .then(() => console.log('MongoDB conectado!'))
+mongoose.connect(process.env.MONGO_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+})
+  .then(() => console.log('MongoDB Atlas conectado!'))
   .catch((err) => console.error('Erro ao conectar no MongoDB', err));
 
+app.use(express.json());
 
-// Rota inicial de teste
-app.get('/', (req, res) => res.send('API Rodando!'));
+// Importa e usa as rotas de produtos
+const productRoutes = require('./routes/productRoutes');
+app.use('/api/products', productRoutes);
 
 // Iniciar o servidor
 app.listen(PORT, () => console.log(`Servidor rodando na porta ${PORT}`));
