@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
+const productRoutes = require('./routes/productRoutes');
 
 // Carregar variáveis de ambiente do arquivo .env
 dotenv.config();
@@ -16,9 +17,11 @@ mongoose.connect(process.env.MONGO_URI)
 
 app.use(express.json());
 
-// Importa e usa as rotas de produtos
-const productRoutes = require('./routes/productRoutes');
+// Rotas
 app.use('/api/products', productRoutes);
+
+// Rota inicial
+app.get('/', (req, res) => res.send('API Rodando!'));
 
 // Iniciar o servidor
 app.listen(PORT, () => console.log(`Servidor rodando na porta ${PORT}`));
